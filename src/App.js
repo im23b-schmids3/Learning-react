@@ -1,13 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import ProductList from "./components/ProductList";
+import ProductList from './components/ProductList.jsx';
 
-function App() {
-  return (
-    <div className="App">
-      <ProductList/>
-    </div>
-  );
+function App() {return (
+        <div>
+            <header>
+                <ProductList />
+            </header>
+        </div>
+    );
 }
-
 export default App;
