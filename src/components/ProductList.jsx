@@ -1,4 +1,4 @@
-import Product from '../components/Product';
+import Product from './Product';
 import {useEffect, useState} from "react";
 
 export default function ProductList() {
@@ -6,6 +6,8 @@ export default function ProductList() {
     const [page, setPage] = useState(1);
     const [products, setProducts] = useState([]);
     let skip = limit * (page - 1);
+
+
 
     useEffect(() => {
 
@@ -22,11 +24,27 @@ export default function ProductList() {
             {products.map((product) => (
                 <Product key={product.id} product={product}/>
             ))}
+            <div className="flex justify-center w-full">
+                <button className="p-3" onClick={() => setPage(prevPage => (prevPage - 1))} disabled={page === 1}
+                > prev
+                </button>
+                {
+                    page - 2 > 0 &&
+                        <button className="p-3" onClick={() => setPage(page - 2)}> {page - 2}</button>
 
-            <button className="p-3" onClick={() => setPage(prevPage => (prevPage - 1))} disabled={page === 1}
-            > prev </button>
-            <p className="p-3 text-blue-700">{page}</p>
-            <button className="p-3" onClick={() => setPage(page + 1)}> next</button>
+                }
+                {
+                    page - 1 > 0 &&
+                        <button className="p-3" onClick={() => setPage(page - 1)}> {page - 1}</button>
+                }
+
+                <p className="p-3 text-blue-900">{page}</p>
+                <button className="p-3" onClick={() => setPage(page + 1)}> {page + 1}</button>
+                <button className="p-3" onClick={() => setPage(page + 2)}> {page + 2}</button>
+
+
+                <button className="p-3" onClick={() => setPage(page + 1)} disabled={page === page[-1]}> next</button>
+            </div>
         </div>
     )
 }

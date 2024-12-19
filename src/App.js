@@ -1,12 +1,13 @@
-import './App.css';
-import ProductList from './components/ProductList.jsx';
 
-function App() {return (
-        <div>
-            <header>
-                <ProductList />
-            </header>
-        </div>
-    );
+import './App.css';
+import ProductList from './components/ProductList';
+
+function App() {
+  return (
+    <>
+        <ProductList/>
+    </>
+  );
 }
+
 export default App;
